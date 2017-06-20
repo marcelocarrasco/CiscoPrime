@@ -42,11 +42,11 @@
       <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;LoadCGN_STATSDataIntoTable.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>Y</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
-      <set_logfile>Y</set_logfile>
+      <set_logfile>N</set_logfile>
       <logfile>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;load_CPU_data_into_raw_table_</logfile>
       <logext>log</logext>
       <add_date>Y</add_date>
@@ -75,17 +75,6 @@
       <nr>0</nr>
       <xloc>640</xloc>
       <yloc>208</yloc>
-      </entry>
-    <entry>
-      <name>Abort job 2</name>
-      <description/>
-      <type>ABORT</type>
-      <message>Check log file for problems</message>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>352</xloc>
-      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Up CGN_STATS Status Files Table</name>
@@ -140,6 +129,21 @@
       <xloc>144</xloc>
       <yloc>64</yloc>
       </entry>
+    <entry>
+      <name>Write to file</name>
+      <description/>
+      <type>WRITE_TO_FILE</type>
+      <filename>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;load_cgn_stats_&#x24;&#x7b;FECHA_PROC&#x7d;.log</filename>
+      <createParentFolder>N</createParentFolder>
+      <appendFile>N</appendFile>
+      <content>No se encontraron archivos nuevos para cargar.....</content>
+      <encoding>UTF-8</encoding>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>352</xloc>
+      <yloc>208</yloc>
+      </entry>
   </entries>
   <hops>
     <hop>
@@ -171,11 +175,20 @@
     </hop>
     <hop>
       <from>Load CGN_STATS Data Into Table</from>
-      <to>Abort job 2</to>
+      <to>Write to file</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write to file</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>

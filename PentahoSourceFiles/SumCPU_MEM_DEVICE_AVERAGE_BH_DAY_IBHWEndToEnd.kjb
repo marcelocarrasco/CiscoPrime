@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>PopulateFilesTable</name>
+  <name>SumCPU_MEM_DEVICE_AVERAGE_BH_DAY_IBHWEndToEnd</name>
     <description/>
     <extended_description/>
     <job_version/>
     <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;02&#x2f;19 15&#x3a;52&#x3a;14.192</created_date>
+  <created_date>2017&#x2f;06&#x2f;06 17&#x3a;09&#x3a;58.077</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;19 15&#x3a;52&#x3a;14.192</modified_date>
+  <modified_date>2017&#x2f;06&#x2f;06 17&#x3a;09&#x3a;58.077</modified_date>
     <parameters>
+        <parameter>
+            <name>FECHA-PROC</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>FECHA_PROC</name>
+            <default_value/>
+            <description>DDMMYYYY</description>
+        </parameter>
     </parameters>
     <slaveservers>
     </slaveservers>
@@ -51,16 +61,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>128</xloc>
+      <xloc>80</xloc>
       <yloc>96</yloc>
       </entry>
     <entry>
-      <name>Get CSV File Names</name>
+      <name>SetEnvironment</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;GetCSVFileNames.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;SetEnvironment.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -84,20 +94,20 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>336</xloc>
+      <xloc>224</xloc>
       <yloc>96</yloc>
       </entry>
     <entry>
-      <name>Populate Files Table</name>
+      <name>CalcSumCPU_MEM_DEVICE_AVERAGE</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;PopulateFilesTable.ktr</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;CalcSumCPU_MEM_DEVICE_AVERAGE_BH_DAY_IBHW.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
-      <exec_per_row>Y</exec_per_row>
+      <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
@@ -117,8 +127,41 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>512</xloc>
+      <xloc>432</xloc>
       <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>UpProcessToRunStatus</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;UpProcessToRunStatus.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>720</xloc>
+      <yloc>208</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -127,14 +170,105 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
+      <xloc>368</xloc>
+      <yloc>208</yloc>
+      </entry>
+    <entry>
+      <name>Set REGEXP variables</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;ciscoprime_cnf.properties</filename>
+      <file_variable_type>CURRENT_JOB</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>REGEXP-CLAUSE</variable_name>
+          <variable_value>&#x24;&#x7b;REGEXP-CPU-MEM-DEVICE-AVG-DAY-BH-IBHW&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>PROCESS_NAME</variable_name>
+          <variable_value>&#x24;&#x7b;SUM-CPU-MEM-DEVICE-AVG-DAY-BH&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>FECHA_PROC</variable_name>
+          <variable_value>&#x24;&#x7b;FECHA_PROC&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>MASK</variable_name>
+          <variable_value>&#x24;&#x7b;MASK-MEMORY-DEVICE-AVERAGE-DAY-BH&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>720</xloc>
       <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Delete empty logs</name>
+      <description/>
+      <type>SHELL</type>
+      <filename/>
+      <work_directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <set_append_logfile>N</set_append_logfile>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <insertScript>Y</insertScript>
+      <script>&#x23;&#x21;&#x2f;bin&#x2f;bash&#xa;&#x3c;&#x3c;COMMENT&#xa;Borra los logs de la carpeta &#x3c;PROYECTO&#x3e;&#x2f;PentahoLogs cuyo tama&#xf1;o es 0 &#xa;o tiene una sola linea que no representa error&#xa;Paramas&#x3a; RUTA &#x3d; &#x3c;PROYECTO&#x3e; ej. &#x2f;home&#x2f;oracle&#x2f;LimpiaLogs&#xa;COMMENT&#xa;&#x23;&#xa;LINES&#x3d;1&#xa;a&#x3d;0&#xa;&#x23;&#xa;for f in &#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;&#x2a;.log&#x3b; do&#xa;  a&#x3d;&#x24;&#x28; wc -l &#x24;f &#x7c; sed &#x27;s&#x2f;&#x5e;&#x5c;&#x28;&#x5b;0-9&#x5d;&#x2a;&#x5c;&#x29;.&#x2a;&#x24;&#x2f;&#x5c;1&#x2f;&#x27; &#x29;&#xa;  if &#x5b; &#x22;&#x24;a&#x22; -le &#x22;&#x24;LINES&#x22; &#x5d;&#xa;  then&#xa;    rm -f &#x22;&#x24;f&#x22;&#xa;  fi&#xa;done&#xa;</script>
+      <loglevel>Basic</loglevel>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>496</xloc>
+      <yloc>208</yloc>
+      </entry>
+    <entry>
+      <name>setFechaProc</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;setFechaProc.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>32</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>Get CSV File Names</to>
+      <to>SetEnvironment</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -142,8 +276,17 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Get CSV File Names</from>
-      <to>Populate Files Table</to>
+      <from>SetEnvironment</from>
+      <to>CalcSumCPU_MEM_DEVICE_AVERAGE</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CalcSumCPU_MEM_DEVICE_AVERAGE</from>
+      <to>Set REGEXP variables</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -151,8 +294,44 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Populate Files Table</from>
+      <from>Set REGEXP variables</from>
+      <to>UpProcessToRunStatus</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>UpProcessToRunStatus</from>
+      <to>Delete empty logs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Delete empty logs</from>
       <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SetEnvironment</from>
+      <to>setFechaProc</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>setFechaProc</from>
+      <to>CalcSumCPU_MEM_DEVICE_AVERAGE</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>GetCSVFileNames</name>
+    <name>setFechaProc</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -63,124 +63,42 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
-         <slaveserver><name>SlaveOne</name><hostname>127.0.0.1</hostname><port>9002</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master><sslMode>N</sslMode></slaveserver>
-         <slaveserver><name>localhost</name><hostname>localhost</hostname><port>8085</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master><sslMode>N</sslMode></slaveserver>
-         <slaveserver><name>slave b</name><hostname>localhost</hostname><port>8083</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master><sslMode>N</sslMode></slaveserver>
-         <slaveserver><name>slave a</name><hostname>localhost</hostname><port>8082</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master><sslMode>N</sslMode></slaveserver>
-         <slaveserver><name>falda.claro.amx</name><hostname>falda.claro.amx</hostname><port>8085</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname>amba-proxy1.ctimovil.net</proxy_hostname><proxy_port>8083</proxy_port><non_proxy_hosts/><master>N</master><sslMode>N</sslMode></slaveserver>
-         <slaveserver><name>Master</name><hostname>localhost</hostname><port>8081</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master><sslMode>N</sslMode></slaveserver>
-         <slaveserver><name>SlaveTwo</name><hostname>127.0.0.1</hostname><port>9003</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master><sslMode>N</sslMode></slaveserver>
-         <slaveserver><name>local_8081</name><hostname>localhost</hostname><port>8081</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master><sslMode>N</sslMode></slaveserver>
     </slaveservers>
     <clusterschemas>
-        <clusterschema>
-          <name>local</name>
-          <base_port>40000</base_port>
-          <sockets_buffer_size>2000</sockets_buffer_size>
-          <sockets_flush_interval>5000</sockets_flush_interval>
-          <sockets_compressed>N</sockets_compressed>
-          <dynamic>N</dynamic>
-          <slaveservers>
-          </slaveservers>
-        </clusterschema>
-        <clusterschema>
-          <name>localhost_cluster</name>
-          <base_port>40000</base_port>
-          <sockets_buffer_size>2000</sockets_buffer_size>
-          <sockets_flush_interval>5000</sockets_flush_interval>
-          <sockets_compressed>Y</sockets_compressed>
-          <dynamic>N</dynamic>
-          <slaveservers>
-            <name>Master</name>
-            <name>SlaveOne</name>
-            <name>SlaveTwo</name>
-          </slaveservers>
-        </clusterschema>
-        <clusterschema>
-          <name>local processing cluster</name>
-          <base_port>40000</base_port>
-          <sockets_buffer_size>2000</sockets_buffer_size>
-          <sockets_flush_interval>5000</sockets_flush_interval>
-          <sockets_compressed>Y</sockets_compressed>
-          <dynamic>N</dynamic>
-          <slaveservers>
-            <name>Master</name>
-            <name>slave a</name>
-            <name>slave b</name>
-          </slaveservers>
-        </clusterschema>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;02&#x2f;19 16&#x3a;05&#x3a;19.266</created_date>
+  <created_date>2017&#x2f;05&#x2f;24 11&#x3a;12&#x3a;04.219</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;02&#x2f;19 16&#x3a;05&#x3a;19.266</modified_date>
+  <modified_date>2017&#x2f;05&#x2f;24 11&#x3a;12&#x3a;04.219</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>FECHA_PROC es pasado como parametro desde el Job RunAllHourJobs.kjb que lo saca de la columna PARAMS&#xa;de la tabla PROCESS_TO_RUN</note>
+      <xloc>160</xloc>
+      <yloc>16</yloc>
+      <width>741</width>
+      <heigth>44</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <order>
-  <hop> <from>Get Variables</from><to>Get File Names</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get File Names</from><to>Copy rows to result</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Variables</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Copy rows to result</name>
-    <type>RowsToResult</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>480</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get File Names</name>
-    <type>GetFileNames</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <filter>
-      <filterfiletype>all_files</filterfiletype>
-    </filter>
-    <doNotFailIfNoFile>N</doNotFailIfNoFile>
-    <rownum>N</rownum>
-    <isaddresult>Y</isaddresult>
-    <filefield>N</filefield>
-    <rownum_field/>
-    <filename_Field/>
-    <wildcard_Field/>
-    <exclude_wildcard_Field/>
-    <dynamic_include_subfolders>N</dynamic_include_subfolders>
-    <limit>0</limit>
-    <file>
-      <name>&#x24;&#x7b;DIRECTORY&#x7d;&#x2f;Data</name>
-      <filemask>&#x24;&#x7b;FILENAME&#x7d;&#x5c;.csv</filemask>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>272</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Get Variables</name>
     <type>GetVariable</type>
@@ -194,33 +112,69 @@
            </partitioning>
     <fields>
       <field>
-        <name>DIRECTORY</name>
-        <variable>&#x24;&#x7b;DIRECTORY&#x7d;</variable>
+        <name>FECHA_RUN</name>
+        <variable>&#x24;&#x7b;FECHA_PROC&#x7d;</variable>
         <type>String</type>
-        <format/>
+        <format>ddMMyyyyHH</format>
         <currency/>
         <decimal/>
         <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>FILENAME</name>
-        <variable>&#x24;&#x7b;FILENAME&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <length>10</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>128</xloc>
+      <xloc>160</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Modified Java Script Value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#x2f;&#x2f;var miVariable &#x3d; getVariable&#x28;&#x22;FECHA_RUN&#x22;,&#x22;0101199900&#x22;&#x29;&#x3b;&#xa;var miVariable &#x3d; getVariable&#x28;&#x22;FECHA-PROC&#x22;,&#x22;01011999&#x22;&#x29;&#x3b;&#xa;&#xa;var anio &#x3d; miVariable.substr&#x28;4,4&#x29;&#x3b;&#xa;var mes &#x3d; miVariable.substr&#x28;2,2&#x29;&#x3b;&#xa;var dia &#x3d; miVariable.substr&#x28;0,2&#x29;&#x3b;&#xa;&#x2f;&#x2f;var hora &#x3d; miVariable.substr&#x28;8,2&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f;var fzip &#x3d; dateAdd&#x28;str2date&#x28;anio&#x2b;&#x27;-&#x27;&#x2b;mes&#x2b;&#x27;-&#x27;&#x2b;dia,&#x22;yyyy-MM-dd&#x22;&#x29;,&#x22;d&#x22;,-1&#x29;&#x3b;&#xa;&#x2f;&#x2f;var fzip2 &#x3d; date2str&#x28;fzip,&#x22;yyyy-MM-dd&#x22;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f;setVariable&#x28;&#x22;FECHA_RUN&#x22;,dia&#x2b;mes&#x2b;anio&#x2b;hora,&#x22;r&#x22;&#x29;&#x3b;&#xa;setVariable&#x28;&#x22;FECHA_PROC&#x22;,dia&#x2b;mes&#x2b;anio,&#x22;r&#x22;&#x29;&#x3b;&#xa;&#x2f;&#x2f;setVariable&#x28;&#x22;HORA_PROC&#x22;,hora,&#x22;r&#x22;&#x29;&#x3b;&#xa;&#x2f;&#x2f;setVariable&#x28;&#x22;FECHA_ZIP&#x22;,fzip2,&#x22;r&#x22;&#x29;&#x3b;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>miVariable</name>
+        <rename>miVariable</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>anio</name>
+        <rename>anio</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>mes</name>
+        <rename>mes</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>dia</name>
+        <rename>dia</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>352</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>

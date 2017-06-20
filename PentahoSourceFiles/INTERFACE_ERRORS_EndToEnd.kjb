@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>CGN_STATS_EndToEnd</name>
+  <name>INTERFACE_ERRORS_EndToEnd</name>
     <description/>
     <extended_description/>
     <job_version/>
@@ -24,7 +24,7 @@
         <parameter>
             <name>FECHA_RUN</name>
             <default_value/>
-            <description>DDMMYYYYHH24</description>
+            <description/>
         </parameter>
         <parameter>
             <name>FECHA_ZIP</name>
@@ -71,8 +71,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>48</xloc>
-      <yloc>32</yloc>
+      <xloc>64</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>SetEnvironment</name>
@@ -104,8 +104,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>192</xloc>
-      <yloc>32</yloc>
+      <xloc>208</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>Get Data From Source</name>
@@ -116,42 +116,32 @@
       <arg_from_previous>N</arg_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>Y</set_logfile>
-      <logfile>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;rsync_cgn_stats_&#x24;&#x7b;FECHA_PROC&#x7d;</logfile>
+      <logfile>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;rsync_interface_errors_&#x24;&#x7b;FECHA_PROC&#x7d;</logfile>
       <set_append_logfile>N</set_append_logfile>
       <logext>log</logext>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>&#x24;&#x7b;RSYNC-CGN-STATS&#x7d;</script>
+      <script>&#x24;&#x7b;RSYNC-INTERFACE-ERRORS&#x7d;</script>
       <loglevel>Error</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>848</xloc>
-      <yloc>32</yloc>
-      </entry>
-    <entry>
-      <name>Success</name>
-      <description/>
-      <type>SUCCESS</type>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>528</xloc>
-      <yloc>480</yloc>
+      <xloc>880</xloc>
+      <yloc>48</yloc>
       </entry>
     <entry>
       <name>Write To Log Post Copy Results</name>
       <description/>
       <type>WRITE_TO_LOG</type>
-      <logmessage>&#x3d;&#x3d;&#x3d;&#x3d;&#x3e;&#x3e;&#x3e;&#x3e; ERROR &#x3c;&#x3c;&#x3c;&#x3c;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;No se copiaron archivos &#x24;&#x7b;FILENAME&#x7d; en el directorio &#x24;&#x7b;DIRECTORY&#x7d;&#xa;Se inserta en la tabla PROCESS_TO_RUN para que se ejecute la hora sig.&#xa;Se finaliza la ejecuci&#xf3;n.&#xa;&#xa;FECHA_RUN &#x3d; &#x24;&#x7b;FECHA_RUN&#x7d;&#xa;FECHA_PROC &#x3d; &#x24;&#x7b;FECHA_PROC&#x7d;&#xa;HORA_PROC &#x3d; &#x24;&#x7b;HORA_PROC&#x7d;&#xa;FECHA_ZIP &#x3d; &#x24;&#x7b;FECHA_ZIP&#x7d;&#xa;TOTAL &#x3d; &#x24;&#x7b;TOTAL_ARC&#x7d;&#xa;&#xa;&#x3d;&#x3d;&#x3d;&#x3d;&#x3e;&#x3e;&#x3e;&#x3e; FIN ERROR &#x3c;&#x3c;&#x3c;&#x3c;&#x3d;&#x3d;&#x3d;&#x3d;</logmessage>
+      <logmessage>&#x3d;&#x3d;&#x3d;&#x3d;&#x3e;&#x3e;&#x3e;&#x3e; ERROR &#x3c;&#x3c;&#x3c;&#x3c;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xa;No se copiaron archivos &#x24;&#x7b;FILENAME&#x7d; en el directorio &#x24;&#x7b;DIRECTORY&#x7d;&#xa;Se aborta la ejecuci&#xf3;n&#xa;&#xa;TOTAL &#x3d; &#x24;&#x7b;TOTAL_ARC&#x7d;&#xa;&#x3d;&#x3d;&#x3d;&#x3d;&#x3e;&#x3e;&#x3e;&#x3e; FIN ERROR &#x3c;&#x3c;&#x3c;&#x3c;&#x3d;&#x3d;&#x3d;&#x3d;</logmessage>
       <loglevel>Error</loglevel>
       <logsubject>Valores menores a 1</logsubject>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>192</yloc>
+      <xloc>512</xloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>Unzip &#x24;&#x7b;FILENAME&#x7d; Files</name>
@@ -181,8 +171,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>848</xloc>
-      <yloc>320</yloc>
+      <xloc>880</xloc>
+      <yloc>432</yloc>
       </entry>
     <entry>
       <name>PopulateFilesTable</name>
@@ -212,22 +202,22 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>656</xloc>
-      <yloc>320</yloc>
+      <xloc>704</xloc>
+      <yloc>336</yloc>
       </entry>
     <entry>
-      <name>Load Data &#x26;Update Files Table</name>
+      <name>Load Data &#x26; Update Files Table</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;LoadCGN_STATSIntoTableHOUR.kjb</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;LoadINTERFACE_ERRORSIntoTableHOUR.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>Y</set_logfile>
-      <logfile>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;load_cgn_stats_hour_&#x24;&#x7b;FECHA_PROC&#x7d;</logfile>
+      <logfile>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;load_interface_errors_hour_&#x24;&#x7b;FECHA_PROC&#x7d;</logfile>
       <logext>log</logext>
       <add_date>N</add_date>
       <add_time>N</add_time>
@@ -244,7 +234,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>480</xloc>
-      <yloc>320</yloc>
+      <yloc>336</yloc>
       </entry>
     <entry>
       <name>Delete CSV files</name>
@@ -261,48 +251,15 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>320</xloc>
-      <yloc>416</yloc>
-      </entry>
-    <entry>
-      <name>InsProcessToRunDAYBH</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;InsProcessToRunDAYBH.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>112</xloc>
-      <yloc>480</yloc>
+      <xloc>272</xloc>
+      <yloc>432</yloc>
       </entry>
     <entry>
       <name>Set &#x24;&#x7b;TOTAL_ARC&#x7d; &#x26; &#x24;&#x7b;PROCESS_NAME&#x7d; &#x26; &#x24;&#x7b;TABLA&#x7d;</name>
       <description/>
       <type>SET_VARIABLES</type>
       <replacevars>Y</replacevars>
-      <filename>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;Data&#x2f;cgn_stats.properties</filename>
+      <filename>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;Data&#x2f;interface_errors.properties</filename>
       <file_variable_type>CURRENT_JOB</file_variable_type>
       <fields>
         <field>
@@ -311,18 +268,13 @@
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
-          <variable_name>SUM-HOUR</variable_name>
-          <variable_value>&#x24;&#x7b;SUM-CGN-STATS-HOUR&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
           <variable_name>PROCESS_NAME</variable_name>
-          <variable_value>&#x24;&#x7b;SUM-CGN-STATS-DAY-BH&#x7d;</variable_value>
+          <variable_value>&#x24;&#x7b;SUM-INTERFACE-ERRORS-DAY-BH&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>TABLA</variable_name>
-          <variable_value>CSCO_CGN_STATS_HOUR</variable_value>
+          <variable_value>CSCO_INTERFACE_ERRORS_HOUR</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -332,25 +284,30 @@
         </field>
         <field>
           <variable_name>FILENAME</variable_name>
-          <variable_value>&#x24;&#x7b;CGN-STATS&#x7d;</variable_value>
+          <variable_value>&#x24;&#x7b;INTERFACE-ERRORS&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>ARCHIVO</variable_name>
-          <variable_value>&#x24;&#x7b;CGN-STATS-NAME&#x7d;</variable_value>
+          <variable_value>&#x24;&#x7b;INTERFACE-ERRORS-NAME&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>ORACLE-REGEXP</variable_name>
-          <variable_value>&#x24;&#x7b;CGN-STATS-REGEXP-ORA&#x7d;</variable_value>
+          <variable_value>&#x24;&#x7b;INTERFACE-ERRORS-REGEXP-ORA&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>SUM-HOUR</variable_name>
+          <variable_value>&#x24;&#x7b;SUM-INTERFACE-ERRORS-HOUR&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>848</xloc>
-      <yloc>112</yloc>
+      <xloc>880</xloc>
+      <yloc>144</yloc>
       </entry>
     <entry>
       <name>Se copiaron archivos&#x3f;</name>
@@ -371,8 +328,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>848</xloc>
-      <yloc>192</yloc>
+      <xloc>880</xloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>CheckFilesTable</name>
@@ -405,40 +362,30 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>480</xloc>
-      <yloc>416</yloc>
+      <yloc>432</yloc>
       </entry>
     <entry>
-      <name>InsProcessToRunHOUR</name>
+      <name>Depurar Archivos</name>
       <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;InsProcessToRunHOUR.ktr</filename>
-      <transname/>
+      <type>SHELL</type>
+      <filename/>
+      <work_directory>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;Data</work_directory>
       <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
+      <set_append_logfile>N</set_append_logfile>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
+      <insertScript>Y</insertScript>
+      <script>&#x23;&#x21;&#x2f;bin&#x2f;bash&#xa;&#xa;for i in &#x24;&#x28;ls &#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;Data&#x2f;&#x24;&#x7b;ARCHIVO&#x7d;&#x2a;.csv&#x29;&#xa;do&#xa;  &#x23; Quito todas las ocurrencias de los datos en toremove.txt de los archivos INTERFACE&#x2a;&#xa;&#xa;  grep -vwF -f &#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;Templates&#x2f;toremove.txt &#x24;i &#x3e; &#x24;i.tmp&#xa;  cat &#x24;i.tmp &#x3e; &#x24;i&#xa;  rm &#x24;i.tmp&#xa;&#xa;  &#x23;sed -i &#x27;&#x2f;UCS_Cayetano&#x2f;d&#x27; &#x24;i&#xa;  &#x23;sed -i &#x27;&#x2f;UCS_Garma&#x2f;d&#x27; &#x24;i&#xa;  &#x23;sed -i &#x27;&#x2f;UCS_Olivera&#x2f;d&#x27; &#x24;i&#xa;  &#x23;sed -i &#x27;&#x2f;UCS_Cacique&#x2f;d&#x27; &#x24;i&#xa;done</script>
       <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
+      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>320</xloc>
-      <yloc>192</yloc>
+      <xloc>704</xloc>
+      <yloc>432</yloc>
       </entry>
     <entry>
       <name>setFechaProcHoraProc</name>
@@ -471,7 +418,106 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>368</xloc>
-      <yloc>32</yloc>
+      <yloc>48</yloc>
+      </entry>
+    <entry>
+      <name>ZipOldFiles</name>
+      <description/>
+      <type>JOB</type>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;ZipFiles.kjb</filename>
+      <jobname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>Y</set_logfile>
+      <logfile>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;zip_&#x24;&#x7b;ZIP_FILENAME&#x7d;_&#x24;&#x7b;FECHA_PROC&#x7d;</logfile>
+      <logext>log</logext>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Error</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>704</xloc>
+      <yloc>48</yloc>
+      </entry>
+    <entry>
+      <name>InsProcessToRunHOUR</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;InsProcessToRunHOUR.ktr</filename>
+      <transname/>
+      <arg_from_previous>Y</arg_from_previous>
+      <params_from_previous>Y</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>Y</clear_rows>
+      <clear_files>Y</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>272</xloc>
+      <yloc>256</yloc>
+      </entry>
+    <entry>
+      <name>Set REGEXP variables</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;ciscoprime_cnf.properties</filename>
+      <file_variable_type>CURRENT_JOB</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>REGEXP-CLAUSE</variable_name>
+          <variable_value>&#x24;&#x7b;REGEXP-INTERFACE-ERRORS-HOUR&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>PROCESS_NAME</variable_name>
+          <variable_value>&#x24;&#x7b;SUM-INTERFACE-ERRORS-HOUR&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>FECHA_PROC</variable_name>
+          <variable_value>&#x24;&#x7b;FECHA_PROC&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>MASK</variable_name>
+          <variable_value>&#x24;&#x7b;FMT-FECHA-PROC&#x7d;</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>96</xloc>
+      <yloc>256</yloc>
       </entry>
     <entry>
       <name>UpProcessToRunStatus HOUR</name>
@@ -503,78 +549,18 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>112</xloc>
-      <yloc>288</yloc>
+      <xloc>96</xloc>
+      <yloc>352</yloc>
       </entry>
     <entry>
-      <name>Set REGEXP variables</name>
+      <name>Success</name>
       <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;ciscoprime_cnf.properties</filename>
-      <file_variable_type>CURRENT_JOB</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>REGEXP-CLAUSE</variable_name>
-          <variable_value>&#x24;&#x7b;REGEXP-CGN-STATS-DAY-BH-IBHW&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PROCESS_NAME</variable_name>
-          <variable_value>&#x24;&#x7b;SUM-CGN-STATS-HOUR&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>FECHA_PROC</variable_name>
-          <variable_value>&#x24;&#x7b;FECHA_PROC&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>MASK</variable_name>
-          <variable_value>&#x24;&#x7b;MASK-HOUR-DAY-BH&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
+      <type>SUCCESS</type>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>112</xloc>
-      <yloc>192</yloc>
-      </entry>
-    <entry>
-      <name>Set PROCESS_NAME</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;ciscoprime_cnf.properties</filename>
-      <file_variable_type>CURRENT_JOB</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>REGEXP-CLAUSE</variable_name>
-          <variable_value>&#x24;&#x7b;REGEXP-CGN-STATS-DAY-BH-IBHW&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PROCESS_NAME</variable_name>
-          <variable_value>&#x24;&#x7b;SUM-CGN-STATS-DAY-BH&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>FECHA_PROC</variable_name>
-          <variable_value>&#x24;&#x7b;FECHA_PROC&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>MASK</variable_name>
-          <variable_value>&#x24;&#x7b;MASK-HOUR-DAY-BH&#x7d;</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>112</xloc>
-      <yloc>384</yloc>
+      <xloc>96</xloc>
+      <yloc>480</yloc>
       </entry>
     <entry>
       <name>Set &#x24;&#x7b;ZIP_FILENAME&#x7d;</name>
@@ -586,74 +572,20 @@
       <fields>
         <field>
           <variable_name>ZIP_FILENAME</variable_name>
-          <variable_value>&#x24;&#x7b;CGN-STATS-ZIPNAME&#x7d;</variable_value>
+          <variable_value>&#x24;&#x7b;INTERFACE-ERRORS-ZIPNAME&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>ARCHIVO</variable_name>
-          <variable_value>&#x24;&#x7b;CGN-STATS-NAME&#x7d;</variable_value>
+          <variable_value>&#x24;&#x7b;INTERFACE-ERRORS-NAME&#x7d;</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>528</xloc>
-      <yloc>32</yloc>
-      </entry>
-    <entry>
-      <name>ZipOldFiles</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;ZipFiles.kjb</filename>
-      <jobname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>Y</set_logfile>
-      <logfile>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;zip_old_files_&#x24;&#x7b;FECHA_PROC&#x7d;</logfile>
-      <logext>log</logext>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Error</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>32</yloc>
-      </entry>
-    <entry>
-      <name>Delete empty logs</name>
-      <description/>
-      <type>SHELL</type>
-      <filename/>
-      <work_directory/>
-      <arg_from_previous>N</arg_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <set_append_logfile>N</set_append_logfile>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <insertScript>Y</insertScript>
-      <script>&#x23;&#x21;&#x2f;bin&#x2f;bash&#xa;&#x3c;&#x3c;COMMENT&#xa;Borra los logs de la carpeta &#x3c;PROYECTO&#x3e;&#x2f;PentahoLogs cuyo tama&#xf1;o es 0 &#xa;o tiene una sola linea que no representa error&#xa;Paramas&#x3a; RUTA &#x3d; &#x3c;PROYECTO&#x3e; ej. &#x2f;home&#x2f;oracle&#x2f;LimpiaLogs&#xa;COMMENT&#xa;&#x23;&#xa;LINES&#x3d;1&#xa;a&#x3d;0&#xa;&#x23;&#xa;for f in &#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;PentahoLogs&#x2f;&#x2a;.log&#x3b; do&#xa;  a&#x3d;&#x24;&#x28; wc -l &#x24;f &#x7c; sed &#x27;s&#x2f;&#x5e;&#x5c;&#x28;&#x5b;0-9&#x5d;&#x2a;&#x5c;&#x29;.&#x2a;&#x24;&#x2f;&#x5c;1&#x2f;&#x27; &#x29;&#xa;  if &#x5b; &#x22;&#x24;a&#x22; -le &#x22;&#x24;LINES&#x22; &#x5d;&#xa;  then&#xa;    rm -f &#x22;&#x24;f&#x22;&#xa;  fi&#xa;done&#xa;</script>
-      <loglevel>Basic</loglevel>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>304</xloc>
-      <yloc>480</yloc>
+      <xloc>544</xloc>
+      <yloc>48</yloc>
       </entry>
   </entries>
   <hops>
@@ -668,25 +600,7 @@
     </hop>
     <hop>
       <from>PopulateFilesTable</from>
-      <to>Load Data &#x26;Update Files Table</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Unzip &#x24;&#x7b;FILENAME&#x7d; Files</from>
-      <to>PopulateFilesTable</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Get Data From Source</from>
-      <to>Set &#x24;&#x7b;TOTAL_ARC&#x7d; &#x26; &#x24;&#x7b;PROCESS_NAME&#x7d; &#x26; &#x24;&#x7b;TABLA&#x7d;</to>
+      <to>Load Data &#x26; Update Files Table</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -721,7 +635,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Load Data &#x26;Update Files Table</from>
+      <from>Load Data &#x26; Update Files Table</from>
       <to>CheckFilesTable</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -739,8 +653,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Delete CSV files</from>
-      <to>InsProcessToRunHOUR</to>
+      <from>Unzip &#x24;&#x7b;FILENAME&#x7d; Files</from>
+      <to>Depurar Archivos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Depurar Archivos</from>
+      <to>PopulateFilesTable</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -757,7 +680,34 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>ZipOldFiles</from>
+      <to>Get Data From Source</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Get Data From Source</from>
+      <to>Set &#x24;&#x7b;TOTAL_ARC&#x7d; &#x26; &#x24;&#x7b;PROCESS_NAME&#x7d; &#x26; &#x24;&#x7b;TABLA&#x7d;</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>Write To Log Post Copy Results</from>
+      <to>InsProcessToRunHOUR</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Delete CSV files</from>
       <to>InsProcessToRunHOUR</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -785,34 +735,7 @@
     </hop>
     <hop>
       <from>UpProcessToRunStatus HOUR</from>
-      <to>Set PROCESS_NAME</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set PROCESS_NAME</from>
-      <to>InsProcessToRunDAYBH</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>ZipOldFiles</from>
-      <to>Get Data From Source</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Set &#x24;&#x7b;ZIP_FILENAME&#x7d;</from>
-      <to>ZipOldFiles</to>
+      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -829,17 +752,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>InsProcessToRunDAYBH</from>
-      <to>Delete empty logs</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete empty logs</from>
-      <to>Success</to>
+      <from>Set &#x24;&#x7b;ZIP_FILENAME&#x7d;</from>
+      <to>ZipOldFiles</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -848,27 +762,6 @@
     </hop>
   </hops>
   <notepads>
-    <notepad>
-      <note>El parametro FECHA_RUN viene en fmt. DDMMYYYYHH24, &#xa;que se obtiene del campo params de la tabla PROCESS_TO_RUN</note>
-      <xloc>608</xloc>
-      <yloc>448</yloc>
-      <width>443</width>
-      <heigth>44</heigth>
-      <fontname>Sans</fontname>
-      <fontsize>10</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
 
 </job>

@@ -56,7 +56,7 @@
       <rootzip>N</rootzip>
       <createfolder>N</createfolder>
       <nr_limit>10</nr_limit>
-      <wildcardSource>&#x24;&#x7b;FILENAME&#x7d;</wildcardSource>
+      <wildcardSource>.&#x2a;&#x28;&#x3f;i&#x29;&#x28;&#x24;&#x7b;ARCHIVO&#x7d;&#x24;&#x7b;FECHA_PROC&#x7d;&#x29;.&#x2a;&#x28;&#x3f;-i&#x29;&#x5c;.zip</wildcardSource>
       <success_condition>success_if_no_errors</success_condition>
       <iffileexists>OVERWRITE</iffileexists>
       <create_move_to_directory>N</create_move_to_directory>
@@ -65,7 +65,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>288</xloc>
-      <yloc>80</yloc>
+      <yloc>144</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -75,25 +75,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>688</xloc>
-      <yloc>80</yloc>
-      </entry>
-    <entry>
-      <name>Delete Unzipped Files</name>
-      <description/>
-      <type>DELETE_FILES</type>
-      <arg_from_previous>N</arg_from_previous>
-      <include_subfolders>N</include_subfolders>
-      <fields>
-        <field>
-          <name>&#x24;&#x7b;DIRECTORY&#x7d;&#x2f;Data</name>
-          <filemask>&#x24;&#x7b;FILENAME&#x7d;</filemask>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>80</yloc>
+      <yloc>144</yloc>
       </entry>
     <entry>
       <name>START</name>
@@ -113,7 +95,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>144</xloc>
-      <yloc>80</yloc>
+      <yloc>144</yloc>
       </entry>
     <entry>
       <name>Move Files</name>
@@ -153,8 +135,39 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>512</xloc>
-      <yloc>192</yloc>
+      <xloc>416</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Delete exporthourly folder</name>
+      <description/>
+      <type>DELETE_FOLDERS</type>
+      <arg_from_previous>N</arg_from_previous>
+      <success_condition>success_if_no_errors</success_condition>
+      <limit_folders>10</limit_folders>
+      <fields>
+        <field>
+          <name>&#x24;&#x7b;DIRECTORY&#x7d;&#x2f;Data&#x2f;exporthourly</name>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>560</xloc>
+      <yloc>144</yloc>
+      </entry>
+    <entry>
+      <name>Write To Log</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>No existe la carpeta &#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;Data&#x2f;exporthourly</logmessage>
+      <loglevel>Error</loglevel>
+      <logsubject/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>560</xloc>
+      <yloc>256</yloc>
       </entry>
   </entries>
   <hops>
@@ -169,24 +182,6 @@
     </hop>
     <hop>
       <from>Unzip file</from>
-      <to>Delete Unzipped Files</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete Unzipped Files</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Delete Unzipped Files</from>
       <to>Move Files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -196,6 +191,15 @@
     </hop>
     <hop>
       <from>Move Files</from>
+      <to>Delete exporthourly folder</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Delete exporthourly folder</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -203,8 +207,56 @@
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Delete exporthourly folder</from>
+      <to>Write To Log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Move Files</from>
+      <to>Write To Log</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>1. Descomprime los archivos copiados en la carperta &#x24;&#x7b;DIRECTORY&#x7d;&#x2f;Data&#x2f;exporthourly&#xa;2. Mueve los archivos .csv a &#x24;&#x7b;DIRECTORY&#x7d;&#x2f;Data&#xa;3. Elimina la carpeta &#x24;&#x7b;DIRECTORY&#x7d;&#x2f;Data&#x2f;exporthourly</note>
+      <xloc>96</xloc>
+      <yloc>16</yloc>
+      <width>601</width>
+      <heigth>61</heigth>
+      <fontname/>
+      <fontsize>-1</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
 
 </job>
