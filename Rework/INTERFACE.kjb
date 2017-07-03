@@ -473,12 +473,21 @@
       <to>Delete processed files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Delete processed files</from>
+      <to>Delete empty logs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CheckFilesTable</from>
       <to>Delete empty logs</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

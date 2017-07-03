@@ -335,7 +335,7 @@
       <fields>
         <field>
           <name>&#x24;&#x7b;CISCO-HOME&#x7d;&#x2f;Data</name>
-          <filemask>.&#x2a;&#x28;&#x3f;i&#x29;&#x28;&#x24;&#x7b;FILENAME&#x7d;&#x24;&#x7b;FECHA_PROC&#x7d;&#x29;&#x2a;&#x28;&#x3f;-i&#x29;</filemask>
+          <filemask>.&#x2a;&#x28;&#x3f;&#x29;&#x28;&#x24;&#x7b;FILENAME&#x7d;&#x24;&#x7b;FECHA_PROC&#x7d;&#x29;&#x2a;&#x28;&#x3f;&#x29;</filemask>
         </field>
       </fields>
       <parallel>N</parallel>
@@ -464,7 +464,7 @@
       <to>Delete processed files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -473,12 +473,21 @@
       <to>Delete empty logs</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Write To Log Post Copy Results</from>
+      <to>Delete empty logs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CheckFilesTable</from>
       <to>Delete empty logs</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

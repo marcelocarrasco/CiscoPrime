@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>UpRwkProcessToRunStatus</name>
+    <name>setFechaProc</name>
     <description/>
-    <extended_description>Controla el resultado de la ejecuci&#xf3;n del re-proceso y actualiza el status de la tabla&#xa;PROCESS_TO_RUN en funci&#xf3;n del resultado de ejecuci&#xf3;n.</extended_description>
+    <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
@@ -67,40 +67,37 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;12&#x2f;15 09&#x3a;41&#x3a;56.968</created_date>
+  <created_date>2017&#x2f;05&#x2f;24 11&#x3a;12&#x3a;04.219</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;12&#x2f;15 09&#x3a;41&#x3a;56.968</modified_date>
+  <modified_date>2017&#x2f;05&#x2f;24 11&#x3a;12&#x3a;04.219</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>FECHA_PROC es pasado como parametro desde el Job RunAllHourJobs.kjb que lo saca de la columna PARAMS&#xa;de la tabla PROCESS_TO_RUN</note>
+      <xloc>160</xloc>
+      <yloc>16</yloc>
+      <width>741</width>
+      <heigth>44</heigth>
+      <fontname>Sans</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
-  <connection>
-    <name>db_connection</name>
-    <server>&#x24;&#x7b;DB-HOST&#x7d;</server>
-    <type>ORACLE</type>
-    <access>Native</access>
-    <database>&#x24;&#x7b;DB-NAME&#x7d;</database>
-    <port>&#x24;&#x7b;DB-PORT&#x7d;</port>
-    <username>&#x24;&#x7b;DB-USER&#x7d;</username>
-    <password>&#x24;&#x7b;DB-PASSWORD&#x7d;</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;DB-PORT&#x7d;</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>Get Variables</from><to>Update PROCESS_TO_RUN Table</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Variables</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Get Variables</name>
@@ -115,77 +112,29 @@
            </partitioning>
     <fields>
       <field>
-        <name>FECHA_PROC</name>
+        <name>FECHA_RUN</name>
         <variable>&#x24;&#x7b;FECHA_PROC&#x7d;</variable>
         <type>String</type>
-        <format/>
+        <format>ddMMyyyyHH</format>
         <currency/>
         <decimal/>
         <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>REGEXP-CLAUSE</name>
-        <variable>&#x24;&#x7b;REGEXP-CLAUSE&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>PROCESS_NAME</name>
-        <variable>&#x24;&#x7b;PROCESS_NAME&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>MASK-RWK</name>
-        <variable>&#x24;&#x7b;MASK-RWK&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>MASK</name>
-        <variable>&#x24;&#x7b;MASK-HOUR-DAY-BH&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
+        <length>10</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>192</xloc>
-      <yloc>112</yloc>
+      <xloc>160</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Update PROCESS_TO_RUN Table</name>
-    <type>ExecSQL</type>
+    <name>Modified Java Script Value</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -194,28 +143,39 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>db_connection</connection>
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>Y</single_statement>
-    <replace_variables>Y</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>MERGE INTO  PROCESS_TO_RUN PTR&#xa;USING &#x28;SELECT COUNT&#x28;1&#x29;          											AS TOTAL_ROWS,&#xa;              &#x27;&#x24;&#x7b;PROCESS_NAME&#x7d;&#x27; 											AS PROCESS_NAME,&#xa;			  -- YYYY-MM-DD &#x28;&#x24;&#x7b;MASK-RWK&#x7d;&#x29; --&#x3e; DDMMYYYY &#x28;&#x24;&#x7b;MASK&#x7d;&#x29;&#xa;              TO_CHAR&#x28;TO_DATE&#x28;&#x27;&#x24;&#x7b;FECHA_PROC&#x7d;&#x27;,&#x27;&#x24;&#x7b;MASK-RWK&#x7d;&#x27;&#x29;,&#x27;&#x24;&#x7b;MASK&#x7d;&#x27;&#x29;		AS PARAMS --FECHA_TO_RUN&#xa;      FROM  ERROR_LOG_NEW&#xa;      WHERE TO_CHAR&#x28;FECHA,&#x27;&#x24;&#x7b;MASK-RWK&#x7d;&#x27;&#x29; &#x3d; TO_CHAR&#x28;SYSDATE,&#x27;&#x24;&#x7b;MASK-RWK&#x7d;&#x27;&#x29;&#xa;      AND SQL_CODE &#x21;&#x3d; 0&#xa;      AND regexp_like&#x28;OBJETO,&#x24;&#x7b;REGEXP-CLAUSE&#x7d;&#x29;&#x29; DATOS&#xa;ON  &#x28;PTR.PARAMS &#x3d; DATOS.PARAMS AND PTR.PROCESS_NAME &#x3d; DATOS.PROCESS_NAME&#x29;&#xa;WHEN MATCHED THEN&#xa;  UPDATE SET  PROCESADO &#x3d; SYSDATE,&#xa;              STATUS &#x3d; CASE	 WHEN DATOS.TOTAL_ROWS &#x21;&#x3d; 0 THEN 1 ELSE 0 END&#xa;  WHERE PTR.PROCESS_NAME &#x3d; DATOS.PROCESS_NAME&#xa;  AND   PTR.PARAMS &#x3d; DATOS.PARAMS</sql>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-       <argument><name>FECHA_PROC</name></argument>
-       <argument><name>REGEXP-CLAUSE</name></argument>
-       <argument><name>PROCESS_NAME</name></argument>
-       <argument><name>MASK-RWK</name></argument>
-       <argument><name>MASK</name></argument>
-    </arguments>
-     <cluster_schema/>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var miVariable &#x3d; getVariable&#x28;&#x22;FECHA-PROC&#x22;,&#x22;01011999&#x22;&#x29;&#x3b;&#xa;&#xa;var anio &#x3d; miVariable.substr&#x28;4,4&#x29;&#x3b;&#xa;var mes &#x3d; miVariable.substr&#x28;2,2&#x29;&#x3b;&#xa;var dia &#x3d; miVariable.substr&#x28;0,2&#x29;&#x3b;&#xa;&#x2f;&#x2f;var hora &#x3d; miVariable.substr&#x28;8,2&#x29;&#x3b;&#xa;&#xa;setVariable&#x28;&#x22;FECHA_PROC&#x22;,anio&#x2b;&#x27;-&#x27;&#x2b;mes&#x2b;&#x27;-&#x27;&#x2b;dia,&#x22;r&#x22;&#x29;&#x3b;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>miVariable</name>
+        <rename>miVariable</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>anio</name>
+        <rename>anio</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>mes</name>
+        <rename>mes</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>dia</name>
+        <rename>dia</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>112</yloc>
+      <xloc>352</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

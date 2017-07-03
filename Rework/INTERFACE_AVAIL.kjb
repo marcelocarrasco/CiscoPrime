@@ -11,26 +11,6 @@
   <modified_user/>
   <modified_date>2017&#x2f;04&#x2f;26 01&#x3a;51&#x3a;36.078</modified_date>
     <parameters>
-        <parameter>
-            <name>FECHA-PROC</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FECHA_PROC</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FECHA_RUN</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FECHA_ZIP</name>
-            <default_value/>
-            <description/>
-        </parameter>
     </parameters>
     <slaveservers>
     </slaveservers>
@@ -464,7 +444,7 @@
       <to>Delete processed files</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -479,6 +459,15 @@
     </hop>
     <hop>
       <from>Delete processed files</from>
+      <to>Delete empty logs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>CheckFilesTable</from>
       <to>Delete empty logs</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>

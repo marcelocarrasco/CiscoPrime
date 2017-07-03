@@ -11,26 +11,6 @@
   <modified_user>-</modified_user>
   <modified_date>2017&#x2f;06&#x2f;06 10&#x3a;13&#x3a;20.432</modified_date>
     <parameters>
-        <parameter>
-            <name>FECHA-PROC</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FECHA_PROC</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FECHA_RUN</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FECHA_ZIP</name>
-            <default_value/>
-            <description/>
-        </parameter>
     </parameters>
   <connection>
     <name>db_connection</name>
@@ -200,17 +180,6 @@
       <yloc>240</yloc>
       </entry>
     <entry>
-      <name>Abort job</name>
-      <description/>
-      <type>ABORT</type>
-      <message>Abor due to errors</message>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>112</xloc>
-      <yloc>240</yloc>
-      </entry>
-    <entry>
       <name>Delete empty logs</name>
       <description/>
       <type>SHELL</type>
@@ -272,15 +241,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Write To Log</from>
-      <to>Abort job</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Delete empty logs</from>
       <to>Success</to>
       <from_nr>0</from_nr>
@@ -301,6 +261,15 @@
     <hop>
       <from>Merge Into CSCO_CPU_MEM_DEVICE_AVG_HOUR</from>
       <to>Delete empty logs</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Write To Log</from>
+      <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
